@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-admin',
@@ -7,14 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit{
-  constructor(private router :Router){} 
   ngOnInit(): void {
-    
+    throw new Error('Method not implemented.');
   }
-  redirectToForm(){
-    this.router.navigate(['/rf']);
-  }
-  
-   
+ 
 
 }

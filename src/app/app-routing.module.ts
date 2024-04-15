@@ -14,7 +14,7 @@ import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   {path:'admin',component:AdminComponent},
   {path:'sel',component:SellerComponent},
-  {path:'db',component:DasboardComponent},
+  {path:'',component:DasboardComponent},
   {path:'customer',component:CustomerComponent},
   {path:'login',component:LoginComponent},
 

@@ -11,7 +11,6 @@ import { User } from '../model/user';
 })
 export class ReactiveformComponent implements OnInit {
   userName: any;
- disabled: any;
   constructor(private fb: FormBuilder, private userService: UserServiceService) { }
   registrationForm !: FormGroup;
   user!: User;
@@ -52,22 +51,8 @@ export class ReactiveformComponent implements OnInit {
     console.log(this.registrationForm.value);
     // this.user = Object.assign(this.user, this.registrationForm.value);
     // localStorage.setItem('Users',JSON.stringify(this.user))
-    this.userService.addUser(this.userData());
+    this.userService.addUser(this.user);
     this.registrationForm.reset();
-  }
-
-  userData():User{
-    return this.user = {
-      userName:this.userName.value,
-
-    }
-
-
-
-    get userName(){
-      return this.registrationForm.get('userName') as FormControl;
-    }
-
   }
 
 
