@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from '../services/user-service.service';
 import { User } from '../model/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reactiveform',
@@ -10,75 +11,60 @@ import { User } from '../model/user';
   styleUrls: ['./reactiveform.component.scss']
 })
 export class ReactiveformComponent implements OnInit {
-  userName: any;
-  constructor(private fb: FormBuilder, private userService: UserServiceService) { }
-  registrationForm !: FormGroup;
-  user!: User;
+  registrationForm!: FormGroup;
+  userTypes = ['admin', 'seller', 'customer'];
 
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) { }
 
-  ngOnInit() {
-
-    this.createregistrationForm();
-    // this.registrationForm = new FormGroup({
-    //   userName: new FormControl(null,Validators.required),
-    //   email: new FormControl(null,[Validators.required,Validators.email]),
-    //   password: new FormControl(null,[Validators.required,Validators.minLength(8), Validators.pattern(
-    //     /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
-    //   ),]),
-    //   confirmPassword: new FormControl(Validators.required)
-    // });
-
-  }
-  createregistrationForm() {
-    this.registrationForm = this.fb.group({
-      userName: [null, Validators.required],
-      email: [null, [Validators.required, Validators.email]],
-      password: [null, [Validators.required, Validators.pattern(
+  ngOnInit(): void {
+    this.registrationForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      userType: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.pattern(
         /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/)]],
-      userType: [null, [Validators.required]],
-      confirmPassword: [null],
-      userId: [null]
-
+      confirmPassword: ['', Validators.required],
+      
+    }, {
+      validator: this.passwordMatchValidator
     });
-
   }
 
-  // passwordmatch(fg:FormGroup): Validators{
-  //   return fg.get('password')?.value === fg.get('confirmPassword')?.value ? null : {notmatched :true};
-  // }
+  passwordMatchValidator(formGroup: FormGroup) {
+    const password = formGroup.get('password')?.value;
+    const confirmPassword = formGroup.get('confirmPassword')?.value;
+
+    return password === confirmPassword ? null : { passwordMismatch: true };
+  }
+
+  generateUserId() {
+    const username = this.registrationForm.value.username;
+    const userType = this.registrationForm.value.userType;
+    return `${userType}_${username}`;
+  }
 
   onSubmit() {
-    console.log(this.registrationForm.value);
-    // this.user = Object.assign(this.user, this.registrationForm.value);
-    // localStorage.setItem('Users',JSON.stringify(this.user))
-    this.userService.addUser(this.user);
-    this.registrationForm.reset();
-  }
+    if (this.registrationForm.valid) {
+      const userData = this.registrationForm.value;
+      userData.userId = this.generateUserId();
+
+  
+      localStorage.setItem(userData.userId, JSON.stringify(userData));
+      // console.log('User registered successfully:', userData);
+      this.registrationForm.reset();
 
 
-
-  GenerateUsername() {
-    let userid = '';
-    const uName: string = this.registrationForm.get('userName')?.value;
-    const uType: string = this.registrationForm.get('userType')?.value;
-
-
-    if (uName.length >= 5) {
-      userid += uName.slice(0, 5);
+      // this.router.navigate(['/login']);
+    } else {
+      console.error('Form is invalid');
     }
-    else {
-      userid += uName;
-    }
-
-    if (uType.length >= 3) {
-      userid += uType.slice(0, 3);
-    }
-    else {
-      userid += uType;
-    }
-
-
-
-    userid = userid.toLowerCase();
+    
   }
 }
+ 
+ 
+ 
+ 

@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-6 m-auto">
+    <div class="col-7 m-auto">
         <div class="card m-auto">
             <div class="card-header">
                 Register Here
@@ -7,52 +7,74 @@
             <div class="card-body">
                 <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
                     <div class="form-group col-12">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" formControlName="userName">
-                        <!-- <span *ngIf="!userName.touched && userName.valid">Please enter the value</span> -->
-                    </div>
-
-                    <div class="form-group col-12">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="text" class="form-control" formControlName="email">
-                    </div>
-
-                    <div class="form-group col-12">
-                        <label for="passwrod" class="form-label">Password</label>
-                        <input type="text" class="form-control" formControlName="password">
-                    </div>
-
-                    <div class="form-group col-12">
-                        <label for="confirmpassword" class="form-label">Confirm Password</label>
-                        <input type="text" class="form-control" formControlName="confirmPassword">
-                    </div>
-
-                
-                    <div class="form-group col-12">
-                        <label for="usertype" class="form-label">Usertype</label>
-                        <select name="userType" formControlName="userType" class="form-control">
-                            <option>Seller</option>
-                            <option>Customer</option>
-                            <option>Admin</option>
-                        </select>
-                    </div>
-                    <div class="column">
-                        <div class="input-box">
-                            <label for="userId" class="=form-label">UserId</label>
-                            <input type="text"  formControlName="userId" />
-                            <button class="btn-gen-username" type="button" (click)="GenerateUsername() " 
-                            >Create a Username
-                            </button>
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" formControlName="username">
+                        <div
+                            *ngIf="registrationForm.get('username')?.invalid && registrationForm.get('username')?.touched">
+                            Username is required
                         </div>
                     </div>
+                    <br>
                     <div class="form-group col-12">
-                        <button type="submit" [disabled]="this.registrationForm.invalid" class="btn btn-primary">Save</button>
-                        <button type="reset" class="btn btn-secondary ml-2">Cancel</button>
+                        <label for="userType">User Type:</label>
+                        <select id="userType" formControlName="userType">
+                            <option *ngFor="let type of userTypes" [value]="type">{{ type }}</option>
+                        </select>
+                        <div
+                            *ngIf="registrationForm.get('userType')?.invalid && registrationForm.get('userType')?.touched">
+                            User type is required
+                        </div>
+                    </div><br>
+
+                    <div class="form-group col-12">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" formControlName="email">
+                        <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched">
+                            Please enter a valid email
+                        </div>
+                    </div><br>
+
+                    <div class="form-group col-12">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" formControlName="password">
+                        <div
+                            *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched">
+                            Password must be of at least 8 characters
+                        </div>
+                    </div>
+                    <br>
+
+
+                    <div class="form-group col-12">
+                        <label for="confirmPassword">Confirm Password:</label>
+                        <input type="password" id="confirmPassword" formControlName="confirmPassword">
+                        <div
+                            *ngIf="registrationForm.get('confirmPassword')?.invalid && registrationForm.get('confirmPassword')?.touched">
+                            Passwords must match
+                        </div>
+                    </div>
+                    <br>
+                    <!-- <div class="column">
+                        <div class="input-box">
+                            <label for="userId" class="=form-label">UserId</label>
+                            <input type="text" formControlName="userId" />
+                            <button class="btn-gen-username" type="button" (click)="generateUserId() ">Create a
+                                Username
+                            </button>
+
+                        </div>
+                    </div> -->
+                    <br>
+                    <div class="form-group col-12">
+                        <button type="submit" class="btn btn-outline-success"
+                            [disabled]="!registrationForm.valid">Register</button>
+
+                        <button type="reset" class="btn btn-secondary ml-1">Cancel</button>
                     </div>
                 </form>
 
                 <!-- Form Value:{{registrationForm.value | json}}
-        Form Status:{{registrationForm.valid}} -->
+                    Form Status:{{registrationForm.valid}} -->
             </div>
         </div>
     </div>

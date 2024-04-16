@@ -1,9 +1,42 @@
-<div class="container">
-    <div class="row pt-4 ">
-        <div class="col-6">
-            <h4>Admin Dashboard</h4>
-    
-        </div>
-        
+
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" formControlName="username">
+      <div *ngIf="registrationForm.get('username')?.invalid && registrationForm.get('username')?.touched">
+        Username is required
+      </div>
     </div>
-</div>
+    <div>
+      <label for="userType">User Type:</label>
+      <select id="userType" formControlName="userType">
+        <option *ngFor="let type of userTypes" [value]="type">{{ type }}</option>
+      </select>
+      <div *ngIf="registrationForm.get('userType')?.invalid && registrationForm.get('userType')?.touched">
+        User type is required
+      </div>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email">
+      <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched">
+        Please enter a valid email
+      </div>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="password">
+      <div *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched">
+        Password must be of at least 8 characters 
+      </div>
+    </div>
+    <div>
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" formControlName="confirmPassword">
+      <div *ngIf="registrationForm.get('confirmPassword')?.invalid && registrationForm.get('confirmPassword')?.touched">
+        Passwords must match
+      </div>
+    </div>
+    <button type="submit" [disabled]="!registrationForm.valid">Register</button>
+  </form>
+  

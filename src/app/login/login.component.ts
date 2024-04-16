@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,53 +8,26 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent  {
-  isSignDivVisible:boolean = true;
+  loginForm: FormGroup;
 
-  signUpObj: SignUpModel = new SignUpModel();
-  loginObj: LoginModel = new LoginModel()
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService
+  ) {
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
 
-  onRegister(){
-    debugger;
-    const localUser = localStorage.getItem('AngUser');           //Ang user is the key where we are going to store the data
-    if(localUser != null) {
-      const users =JSON.parse(localUser);                          //this if statemnt is responsible for if we already had the data in local
-      users.push(this.signUpObj);
-      localStorage.setItem('Anguser',JSON.stringify(users))
+  onSubmit(): void {
+    if (this.loginForm.valid) {
+      const username = this.loginForm.value.username;
+      const password = this.loginForm.value.password;
       
-    }else{
-      const users = [];
-      users.push(this.signUpObj);
-      localStorage.setItem('Anguser',JSON.stringify(users))
-    }
-    alert('Registration Success')
-  }
-  }
-
-
-  export class SignUpModel{
-    name:string;
-    email:string;
-    password:string;
-
-
-    constructor(){
-      this.email="";
-      this.name="";
-      this.password="";
     }
   }
-  
-export class LoginModel{
-  name:string;
-  email:string;
-  password:string;
 
-
-  constructor(){
-    this.email="";
-    this.name="";
-    this.password="";
-  }
 }
 
 

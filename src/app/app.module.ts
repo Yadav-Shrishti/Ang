@@ -50,7 +50,5 @@ import { UserServiceService } from './services/user-service.service';
   bootstrap: [AppComponent]
 })
 export class AppModule { 
-  constructor(){
-    console.log('constructor loaded')
-  }
+ 
 }
