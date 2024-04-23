@@ -10,9 +10,12 @@ import { CustomerComponent } from './customer/customer.component';
 import { SellerComponent } from './seller/seller.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DasboardComponent } from './dasboard/dasboard.component';
+
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
@@ -29,7 +32,6 @@ import { UserServiceService } from './services/user-service.service';
     CustomerComponent,
     SellerComponent,
     DasboardComponent,
-  
     ReactiveformComponent,
     
   
@@ -40,7 +42,9 @@ import { UserServiceService } from './services/user-service.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSidenavModule,
-    MatIconModule,MatButtonModule,
+    MatIconModule,
+    MatButtonModule,
+    MatToolbarModule,
     FormsModule,
     ReactiveFormsModule
   ],

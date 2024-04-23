@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class ReactiveformComponent implements OnInit {
   registrationForm!: FormGroup;
   userTypes = ['admin', 'seller', 'customer'];
+  user:any;
 
   constructor(private formBuilder: FormBuilder, private userService: UserServiceService, private router: Router) { }
 

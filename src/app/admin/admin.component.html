@@ -1,9 +1,24 @@
-<div class="container">
-    <div class="row pt-4 ">
-        <div class="col-6">
-            <h4>Admin Dashboard</h4>
-    
+<mat-sidenav-container class="container">
+    <mat-sidenav #sidebar mode="side" opened>
+        Sidebar Content
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <div class="toolbar">
+                <mat-toolbar>
+                    <mat-icon (click)="sidebar.toggle()">menu</mat-icon>
+                    <div class="box">
+                        <mat-icon>search</mat-icon>
+                        <mat-icon>bookmark_border</mat-icon>
+                        <mat-icon>mail_outline</mat-icon>
+
+                    </div>
+                </mat-toolbar>
+            </div>
+            <div class="main">
+                Main content
+            </div>
         </div>
-        
-    </div>
-</div>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

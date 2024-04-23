@@ -5,7 +5,7 @@ import { User } from '../model/user';
   providedIn: 'root'
 })
 export class UserServiceService {
-
+ 
   constructor() { }
   
   addUser(user: User){
@@ -18,5 +18,11 @@ export class UserServiceService {
     }
     localStorage.setItem('Users',JSON.stringify(users));
   }
-  
+
+
+  getUsers(): User[] {                                                      //to retieve
+    const usersString = localStorage.getItem('Users');
+    return usersString ? JSON.parse(usersString) : [];
+  }
+
 }
