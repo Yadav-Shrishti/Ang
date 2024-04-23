@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from '../services/user-service.service';
 import { User } from '../model/user';
 import { Router } from '@angular/router';
@@ -11,20 +11,18 @@ import { Router } from '@angular/router';
 })
 export class ReactiveformComponent implements OnInit {
   registrationForm!: FormGroup;
-  user: any = {};                                                //to store form info in this variable
   userTypes = ['admin', 'seller', 'customer'];
 
-  constructor(private formBuilder: FormBuilder,private userService:UserServiceService) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.registrationForm = this.formBuilder.group({
       username: ['', Validators.required],
       userType: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.pattern(
-        /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/)]],
+      password: ['', [Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/)]],
       confirmPassword: ['', Validators.required],
-
+      userId: ['']
     }, {
       validator: this.passwordMatchValidator
     });
@@ -33,7 +31,6 @@ export class ReactiveformComponent implements OnInit {
   passwordMatchValidator(formGroup: FormGroup) {
     const password = formGroup.get('password')?.value;
     const confirmPassword = formGroup.get('confirmPassword')?.value;
-
     return password === confirmPassword ? null : { passwordMismatch: true };
   }
 
@@ -43,33 +40,18 @@ export class ReactiveformComponent implements OnInit {
     return `${userType}_${username}`;
   }
 
-
   onSubmit() {
-    console.log(this.registrationForm.value);
-    this.user = Object.assign(this.user, this.registrationForm.value);
-    this.userService.addUser(this.user);
-    this.registrationForm.reset();
-
-
+    if (this.registrationForm.valid) {
+      const generatedUserId = this.generateUserId();
+      this.registrationForm.patchValue({ userId: generatedUserId });      //to Set userId in form
+      console.log(this.registrationForm.value);                           //to Chk the updated form value
+      // Saving the user data to userService
+      this.userService.addUser(this.registrationForm.value);
+      this.registrationForm.reset();
+      this.router.navigate(['/login']);
+    }else
+    (this.registrationForm.reset)
   }
-  // onSubmit() {
-  //   if (this.registrationForm.valid) {
-  //     const userData = this.registrationForm.value;
-  //     userData.userId = this.generateUserId();
-
-
-  //     localStorage.setItem(userData.userId, JSON.stringify(userData));
-  //     console.log('User registered successfully:', userData);
-  //     this.registrationForm.reset();
-
-
-  //     this.router.navigate(['/login']);
-  //   } else {
-  //     console.error('Form is invalid');
-  //   }
-
-  // }
 }
 
-
-
+// console.log(JSON.stringify(localStorage.getItem("Users")));
