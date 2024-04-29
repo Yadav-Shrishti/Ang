@@ -12,13 +12,12 @@ import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
-  {path:'admin',component:AdminComponent},
-  {path:'seller',component:SellerComponent},
   {path:'',component:DasboardComponent},
+  {path:'admin',loadChildren:() =>import('./admin/admin.module').then(m=>m.AdminModule)},
+  {path:'seller',component:SellerComponent},
   {path:'customer',component:CustomerComponent},
   {path:'login',component:LoginComponent},
-
-  {path:'rf',component:ReactiveformComponent}
+  {path:'rf',component:ReactiveformComponent},
   
   
 ];

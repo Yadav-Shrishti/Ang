@@ -12,7 +12,7 @@ export class UserServiceService {
     let users = [];
     if(localStorage.getItem('Users')){
       users = JSON.parse(localStorage.getItem('Users')!);                   //Applied ! after JSON.parse 
-      users = [user,...users];
+      users = [user,...users];                                              //to add the new entries in the last just swap user from ...users
     }else{
       users =[user];
     }
@@ -20,7 +20,7 @@ export class UserServiceService {
   }
 
 
-  getUsers(): User[] {                                                      //to retieve
+  getUsers(): User[] {                                                      //to retrieve
     const usersString = localStorage.getItem('Users');
     return usersString ? JSON.parse(usersString) : [];
   }

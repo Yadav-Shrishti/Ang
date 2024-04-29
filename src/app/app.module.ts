@@ -20,7 +20,8 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { UserServiceService } from './services/user-service.service';
-
+import { SidebarComponent } from './admin/sidebar/sidebar.component';
+ 
 
 
 
@@ -33,6 +34,7 @@ import { UserServiceService } from './services/user-service.service';
     SellerComponent,
     DasboardComponent,
     ReactiveformComponent,
+    SidebarComponent,
     
   
     
@@ -54,5 +56,8 @@ import { UserServiceService } from './services/user-service.service';
   bootstrap: [AppComponent]
 })
 export class AppModule { 
+  constructor(){
+    console.log('app module loaded')
+  }
  
 }
