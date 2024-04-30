@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from '../services/user-service.service';
 import { User } from '../model/user';
 import { Router } from '@angular/router';
+import * as alertify from 'alertifyjs';
+
 
 @Component({
   selector: 'app-reactiveform',
@@ -12,7 +14,7 @@ import { Router } from '@angular/router';
 export class ReactiveformComponent implements OnInit {
   registrationForm!: FormGroup;
   userTypes = ['admin', 'seller', 'customer'];
-  user:any;
+  user:User | undefined;
 
   constructor(private formBuilder: FormBuilder, private userService: UserServiceService, private router: Router) { }
 
@@ -48,10 +50,11 @@ export class ReactiveformComponent implements OnInit {
       console.log(this.registrationForm.value);                           //to Chk the updated form value
       // Saving the user data to userService
       this.userService.addUser(this.registrationForm.value);
-      this.registrationForm.reset();
+      this.registrationForm.reset
+      alertify.success('User has been added successfully');
       this.router.navigate(['/login']);
     }else
-    (this.registrationForm.reset)
+    (  alertify.error('Something Wrong happend'))
   }
 }
 
