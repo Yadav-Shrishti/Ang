@@ -7,6 +7,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./seller.component.scss']
 })
 export class SellerComponent  implements OnInit{
+auth: any;
   ngOnInit(): void {
     
   }
@@ -23,4 +24,5 @@ onSaveUser(){
   const obj =this.userForm.value;
 
 }
+
 }

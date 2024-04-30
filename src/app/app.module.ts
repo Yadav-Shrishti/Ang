@@ -21,6 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { UserServiceService } from './services/user-service.service';
 import { SidebarComponent } from './admin/sidebar/sidebar.component';
+import { AuthService } from './services/auth.service';
+import { AlertifyService } from './services/alertify.service';
  
 
 
@@ -51,7 +53,9 @@ import { SidebarComponent } from './admin/sidebar/sidebar.component';
     ReactiveFormsModule
   ],
   providers: [
-    UserServiceService
+    UserServiceService,
+    AuthService,
+    AlertifyService
   ],
   bootstrap: [AppComponent]
 })
