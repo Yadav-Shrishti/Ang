@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-dasboard',
-  templateUrl: './dasboard.component.html',
-  styleUrls: ['./dasboard.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class DasboardComponent  implements OnInit{
-  
+export class HomeComponent implements OnInit {
   constructor(private router :Router){} 
   ngOnInit(): void {
     
@@ -16,7 +15,5 @@ export class DasboardComponent  implements OnInit{
     this.router.navigate(['/rf']);
   }
   
-   
-
 
 }

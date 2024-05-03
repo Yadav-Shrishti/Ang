@@ -9,10 +9,11 @@ import { CustomerComponent } from './customer/customer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
-  {path:'',component:DasboardComponent},
+  {path:'',component:HomeComponent},
   {path:'admin',loadChildren:() =>import('./admin/admin.module').then(m=>m.AdminModule)},
   {path:'seller',component:SellerComponent},
   {path:'customer',component:CustomerComponent},

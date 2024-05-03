@@ -23,6 +23,7 @@ import { UserServiceService } from './services/user-service.service';
 import { SidebarComponent } from './admin/sidebar/sidebar.component';
 import { AuthService } from './services/auth.service';
 import { AlertifyService } from './services/alertify.service';
+import { HomeComponent } from './home/home.component';
  
 
 
@@ -37,6 +38,7 @@ import { AlertifyService } from './services/alertify.service';
     DasboardComponent,
     ReactiveformComponent,
     SidebarComponent,
+    HomeComponent,
     
   
     

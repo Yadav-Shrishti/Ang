@@ -33,5 +33,50 @@
     </form>
 </div> -->
 
-Seller works
-
+    <!-- Your user page content here -->
+    <!-- <button (click)="logout()">Logout</button> -->
+    <!-- <div>
+        <h2>User Dashboard</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>User ID</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>User Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>{{ user.userId }}</td>
+              <td>{{ user.username }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.userType }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div> -->
+      <div>  <h3>Registered Users</h3></div>
+    
+      <table class="table table-hover table-bordered" >
+       
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">User Id</th>
+            <th scope="col">UserName</th>
+            <th scope="col">Email</th>
+            <th scope="col">UserType</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+            <tbody>
+              <tr *ngFor="let user of users ; let i =index">
+                <td>{{i+1}}</td>
+                <td>{{ user.userId }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.userType }}</td>
+              </tr>
+        </tbody>
+      </table>

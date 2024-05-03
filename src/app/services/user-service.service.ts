@@ -24,5 +24,8 @@ export class UserServiceService {
     const usersString = localStorage.getItem('Users');
     return usersString ? JSON.parse(usersString) : [];
   }
-
+  
+  logout(): void {
+    localStorage.removeItem('Users'); // Clear user data from local storage
+  }
 }
