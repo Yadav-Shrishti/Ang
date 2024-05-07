@@ -1,0 +1,43 @@
+<div>
+    <h2>Registered Users</h2>
+</div>
+
+
+<div class="row mt-6 mb-6">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">              
+        <div class="card shadow-effect">
+            <div class="card-body">
+                <div class="table row-border hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">S.No.</th>
+                            <th scope="col">User Id</th>
+                            <th scope="col">UserName</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">UserType</th>
+                            <th scope="col">Actions</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users ; let i =index">
+                            <td>{{i+1}}</td>
+                            <td>{{ user.userId }}</td>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.userType }}</td>
+                            <td>  
+                                <button class="btn btn-sm btn-warning"  (click)="editUser(user)" >Edit</button>
+                                <button class="btn btn-sm btn-danger ml-2" (click)="deleteUser(user.id)" >Delete</button>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+
+</div>

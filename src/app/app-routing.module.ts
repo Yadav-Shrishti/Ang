@@ -19,12 +19,13 @@ const routes: Routes = [
   {path:'customer',component:CustomerComponent},
   {path:'login',component:LoginComponent},
   {path:'rf',component:ReactiveformComponent},
+  {path:'db',component:DasboardComponent}
   
   
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes)], 
   exports: [RouterModule]
 })
 export class AppRoutingModule {

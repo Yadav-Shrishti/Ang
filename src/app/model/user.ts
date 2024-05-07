@@ -1,5 +1,6 @@
 
 export interface User {
+id: any;
 userId: string,
 username: string,
 email: string,
