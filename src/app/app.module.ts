@@ -15,6 +15,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -24,8 +25,9 @@ import { SidebarComponent } from './admin/sidebar/sidebar.component';
 import { AuthService } from './services/auth.service';
 import { AlertifyService } from './services/alertify.service';
 import { HomeComponent } from './home/home.component';
+import { SidenavContentAreaDirective } from './sidenav-content-area.directive';
+import { SidenavComponent } from './sidenav/sidenav.component';
  
-
 
 
 @NgModule({
@@ -39,6 +41,8 @@ import { HomeComponent } from './home/home.component';
     ReactiveformComponent,
     SidebarComponent,
     HomeComponent,
+    SidenavContentAreaDirective,
+    SidenavComponent,
     
   
     
@@ -51,6 +55,7 @@ import { HomeComponent } from './home/home.component';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
+    MatListModule,
     FormsModule,
     ReactiveFormsModule
   ],

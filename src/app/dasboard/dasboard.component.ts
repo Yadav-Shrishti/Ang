@@ -8,9 +8,11 @@ import { User } from '../model/user';
   templateUrl: './dasboard.component.html',
   styleUrls: ['./dasboard.component.scss']
 })
-export class DasboardComponent  implements OnInit{
+export class DasboardComponent implements OnInit {
   users: User[] = [];
   router: any;
+  editedUser: User | null = null;
+registrationForm: any;
 
   constructor(private userService: UserServiceService) { }
 
@@ -19,17 +21,24 @@ export class DasboardComponent  implements OnInit{
     this.users = this.userService.getUsers();
   }
 
-  editUser(user: User) {
-    // Navigate to edit user page with user id as route parameter
-    this.router.navigate(['/rf', user.id]);
-  }
-  
-
   deleteUser(userId: number) {
-    // Delete user from the list and update local storage
-    this.userService.deleteUser(userId);
-    // Reload users after deletion
-    this.users = this.userService.getUsers();
+  
+    this.userService.deleteUser(userId);         // to delete user from the list and update the  local storage
+    this.users = this.userService.getUsers();   // to reload users after deletion
   }
 
+  editUser(user: User) {
+    this.editedUser = { ...user };         //user being edited
+  }
+
+  saveUserChanges() {
+    if (this.editedUser) {
+      const index = this.users.findIndex(u => u.userId === this.editedUser!.userId);         // to update the user in the list
+      if (index !== -1) {
+        this.users[index] = { ...this.editedUser };
+        this.userService.updateUser(this.editedUser);                                         // to update the user in local storage
+        this.editedUser = null;                                                                // Reset editedUser to null
+      }
+    }
+  }
 }

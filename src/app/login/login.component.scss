@@ -6,7 +6,7 @@ mat-sidenav{
 
 mat-sidenav-content{
     height: 100vh;
-    background-color: cadetblue;
+    background-color: rgb(170, 219, 221);
     .main{
         margin-left: 30px;
     }
@@ -19,7 +19,7 @@ body {
       background-size: 100% 110%;
   }
   h1, h2, h3, h4, h5, h6, a {
-    margin:0; padding:0;
+    margin:0; padding:0;color: #000;
   }
   .login {
     margin:0 auto;

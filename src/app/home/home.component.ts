@@ -6,11 +6,14 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-  constructor(private router :Router){} 
-  ngOnInit(): void {
-    
+export class HomeComponent  {
+  opened=false;
+  // to chk in console it will appear as opened nd close
+  log(state: any){
+    console.log(state)
   }
+  constructor(private router :Router){} 
+
   redirectToForm(){
     this.router.navigate(['/rf']);
   }

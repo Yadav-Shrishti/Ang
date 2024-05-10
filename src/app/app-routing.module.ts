@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { AppComponent } from './app.component';
 
 
 const routes: Routes = [
