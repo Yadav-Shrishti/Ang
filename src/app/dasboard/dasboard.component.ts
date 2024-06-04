@@ -20,11 +20,9 @@ registrationForm: any;
     // to retrieve saved user data from local storage
     this.users = this.userService.getUsers();
   }
-
-  deleteUser(userId: number) {
   
-    this.userService.deleteUser(userId);         // to delete user from the list and update the  local storage
-    this.users = this.userService.getUsers();   // to reload users after deletion
+  deleteUser(userId: number) {
+    this.userService.deleteUser(userId);
   }
 
   editUser(user: User) {
@@ -41,4 +39,8 @@ registrationForm: any;
       }
     }
   }
+  // logout(): void {
+    //   localStorage.removeItem('Users');
+    //   this.router.navigate(['/login']);
+    // }
 }

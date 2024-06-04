@@ -6,22 +6,25 @@ import { SellerComponent } from './seller/seller.component';
 import { DasboardComponent } from './dasboard/dasboard.component';
 import { CustomerComponent } from './customer/customer.component';
 
-import { ReactiveFormsModule } from '@angular/forms';
+
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { AppComponent } from './app.component';
+import { AppComponent } from './app.component'
+import { CartComponent } from './seller/cart/cart.component';
 
 
 const routes: Routes = [
-  {path:'',component:HomeComponent},
+  
+  
+  {path:'home',component:HomeComponent},
   {path:'admin',loadChildren:() =>import('./admin/admin.module').then(m=>m.AdminModule)},
-  {path:'seller',component:SellerComponent},
+  {path:'seller',loadChildren:() =>import('./seller/seller.module').then(m=>m.SellerModule)},
   {path:'customer',component:CustomerComponent},
   {path:'login',component:LoginComponent},
   {path:'rf',component:ReactiveformComponent},
-  {path:'db',component:DasboardComponent}
-  
+  {path:'db',component:DasboardComponent},
+  {path:'cart',component:CartComponent}
   
 ];
 

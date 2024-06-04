@@ -6,6 +6,7 @@ import { UserServiceService } from './user-service.service';
   providedIn: 'root'
 })
 export class AuthService {
+  currentUser:any;
 
   constructor(private userService: UserServiceService, private router: Router) {}
 
@@ -35,6 +36,11 @@ export class AuthService {
         this.router.navigate(['/']);
         break;
     }
+  }
+  logout() {
+    
+    localStorage.removeItem('currentUser');
+    this.router.navigate(['/login']);
   }
   
 }

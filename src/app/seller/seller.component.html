@@ -1,3 +1,51 @@
+<!-- <nav class="nav">
+  <h2>Seller</h2>
+  <div class="nav-search">
+    <input type="text" placeholder="search"><button>Search</button>
+  </div>
+  <div [ngSwitch]="menuType">
+    <ul *ngSwitchCase="'default'">
+      <li> <a href="#">Add Product</a> </li>
+      <li> <a href="#">List</a> </li>
+      <li> <a href="#">Seller </a> </li>
+      <li> <a (click)="logout()">Logout</a> </li>
+     
+    </ul>
+    <ul *ngSwitchCase="'seller'">
+      <li> <a href="#">Add Product</a> </li>
+      <li> <a href="#">List</a> </li>
+      <li> <a href="#">Seller </a> </li>
+  
+     
+    </ul>
+
+  </div>
+
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- <div class="container">
     <form [formGroup]="userForm" (submit)="onSaveUser()" >
         <div class="row">
@@ -33,9 +81,9 @@
     </form>
 </div> -->
 
-    <!-- Your user page content here -->
-    <!-- <button (click)="logout()">Logout</button> -->
-    <!-- <div>
+<!-- Your user page content here -->
+<!-- <button (click)="logout()">Logout</button> -->
+<!-- <div>
         <h2>User Dashboard</h2>
         <table>
           <thead>
@@ -56,7 +104,7 @@
           </tbody>
         </table>
       </div> -->
-      <div>  <h3>Registered Users</h3></div>
+<!-- <div>  <h3>Registered Users</h3></div>
     
       <table class="table table-hover table-bordered" >
        
@@ -79,4 +127,25 @@
                 <td>{{ user.userType }}</td>
               </tr>
         </tbody>
-      </table>
+      </table> --> 
+      <nav class="nav">
+        <h2>Seller</h2>
+        <div class="nav-search">
+          <input type="text" placeholder="search"><button>Search</button>
+        </div>
+        <div [ngSwitch]="menuType">
+          <ul *ngSwitchCase="'default'">
+            <li> <a href="#">Add Product</a> </li>
+            <li> <a href="#">List</a> </li>
+            <li> <a href="#">Seller </a> </li>
+            <li> <a (click)="logout()">Logout</a> </li> <!-- Add this logout link -->
+          </ul>
+          <ul *ngSwitchCase="'seller'">
+            <li> <a href="#">Add Product</a> </li>
+            <li> <a href="#">List</a> </li>
+            <li> <a href="#">Seller </a> </li>
+            <li> <a (click)="logout()">Logout</a> </li> <!-- Add this logout link -->
+          </ul>
+        </div>
+      </nav>
+      

@@ -5,3 +5,29 @@ mat-sidenav-container{
 //     width:100px;
 //     background-color:rgb(122, 147, 147);
 // }
+
+.navbar {
+    background-color: #bd9696;
+    padding: 10px;
+  }
+  
+  .nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-list li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .nav-list li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+  }
+  
+  .nav-list li a:hover {
+    background-color: #555;
+  }

@@ -8,3 +8,4 @@ password: string,
 userType: string
 
 }
+

@@ -35,12 +35,16 @@ export class UserServiceService {
     }
   }
   // logout(): void {
-  //   localStorage.removeItem('Users'); // Clear user data from local storage
+  //   localStorage.removeItem('currentUser'); // Clear user data from local storage
   // }
   
-  deleteUser(userId: number) {
+  deleteUser(index: number) {
     let users = this.getUsers();
-    users = users.filter(user => user.id !== userId);
+    users.splice(index, 1); // Remove the user at the specified index
     localStorage.setItem('Users', JSON.stringify(users));
+  }
+  getUsername(): string | null {
+    // Example: Fetch username from localStorage
+    return localStorage.getItem('username');
   }
 }

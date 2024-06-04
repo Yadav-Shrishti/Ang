@@ -25,8 +25,9 @@ import { SidebarComponent } from './admin/sidebar/sidebar.component';
 import { AuthService } from './services/auth.service';
 import { AlertifyService } from './services/alertify.service';
 import { HomeComponent } from './home/home.component';
-import { SidenavContentAreaDirective } from './sidenav-content-area.directive';
-import { SidenavComponent } from './sidenav/sidenav.component';
+
+import { CartComponent } from './seller/cart/cart.component';
+import { ProductListComponent } from './seller/product-list/product-list.component';
  
 
 
@@ -41,8 +42,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     ReactiveformComponent,
     SidebarComponent,
     HomeComponent,
-    SidenavContentAreaDirective,
-    SidenavComponent,
+    CartComponent,
+    ProductListComponent,
     
   
     

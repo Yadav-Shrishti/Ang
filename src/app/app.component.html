@@ -1,42 +1,68 @@
-
-
-<!-- <div class="container">
-    <div class="row pt-4 ">
-        <div class="col-6">
-            <h4>Dashboard </h4>
-        </div>
-        <div class="col-6 text-end">
-            <button class="btn btn-outline-success" (click)="redirectToForm()">Add new User</button>
-        </div>
-    </div>
-</div> -->
-
 <mat-toolbar color="primary">
     <mat-toolbar-row>
 
-      <button mat-button (click)="opened =!opened"><mat-icon>menu</mat-icon></button>
-       <button mat-button><mat-icon>home</mat-icon></button>
-    </mat-toolbar-row>
-  </mat-toolbar>
-  <mat-sidenav-container>
-     <mat-sidenav [(opened)]="opened" mode="side">
+        <button mat-button (click)="opened =!opened"><mat-icon>menu</mat-icon></button>
+        <button mat-button><mat-icon>home</mat-icon></button>
         
-      <mat-nav-list>
-        <a mat-list-item>About</a> 
-        <a mat-list-item routerLink="/login">Login</a>
-        <a mat-list-item routerLink="/signup">Signup</a>
-        <a mat-list-item routerLink="/db">Dashboard</a>
-      <a mat-list-item>Contact</a>
-      </mat-nav-list>
+        
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav [(opened)]="opened" mode="side">
+
+        <mat-nav-list>
+            <!-- <div *ngIf="menuType==='default'" class="nav-search">
+                <input type="text" placeholder="search products"><button>Search</button>
+            </div> -->
+
+            <div [ngSwitch]="menuType">
+                <ul *ngSwitchCase="'default'">
+                    <a mat-list-item>About</a>
+                    <a mat-list-item routerLink="login">Login</a>
+                    <a mat-list-item routerLink="db">Dashboard</a>
+                    <a mat-list-item>Contact</a>
+                </ul>
+
+                <ul *ngSwitchCase="'login'">
+                    <a mat-list-item>About</a>
+                    <a mat-list-item routerLink="/login">Login</a>
+                    <a mat-list-item routerLink="/seller">Seller</a>
+                </ul>
+
+                <ul *ngSwitchCase="'admin'">
+                    <a mat-list-item>About</a>
+                    <a mat-list-item>Admin Dashboard</a>
+                    <a mat-list-item routerLink="/db">Dashboard</a>
+                </ul>
+
+                <ul *ngSwitchCase="'customer'">
+                    <a mat-list-item>About</a>
+                    <a mat-list-item routerLink="/cart">No. of customers</a>
+                    <a mat-list-item>Buyer</a>
+                </ul>
+
+                <ul *ngSwitchCase="'seller'">
+                    <a mat-list-item>About</a>
+                    <a mat-list-item routerLink="/product">Product Details</a>
+                    <a mat-list-item routerLink="/cart">Add to Cart</a>
+                    <a mat-list-item>Help</a>
+                </ul>
+
+                <div class="container" >
+                    <div class="row pt-1 ">
+                        <div class="col-6">
+                            <h5>Dashboard </h5>
+                        </div>
+                        <div class="col-6 text-end">
+                            <button class="btn btn-outline-success" (click)="redirectToForm()">Add new User</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </mat-nav-list>
     </mat-sidenav>
-      <mat-sidenav-content>
+    <mat-sidenav-content>
         <router-outlet></router-outlet>
-    
-      </mat-sidenav-content>
-    
-  </mat-sidenav-container>
-  
-
-
- 
-
+    </mat-sidenav-content>
+</mat-sidenav-container>
