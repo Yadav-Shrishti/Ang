@@ -1,26 +1,24 @@
-<!-- <nav class="nav">
-  <h2>Seller</h2>
-  <div class="nav-search">
+
+<nav class="nav">
+  <h3>{{sellerName | titlecase}}</h3>
+  <!-- <div class="nav-search">
     <input type="text" placeholder="search"><button>Search</button>
-  </div>
+  </div> -->
   <div [ngSwitch]="menuType">
     <ul *ngSwitchCase="'default'">
       <li> <a href="#">Add Product</a> </li>
       <li> <a href="#">List</a> </li>
-      <li> <a href="#">Seller </a> </li>
       <li> <a (click)="logout()">Logout</a> </li>
      
     </ul>
     <ul *ngSwitchCase="'seller'">
-      <li> <a href="#">Add Product</a> </li>
+
+      <!-- <li> <a href="#">Add Product</a> </li>
       <li> <a href="#">List</a> </li>
-      <li> <a href="#">Seller </a> </li>
-  
-     
+      <li> <a href="#">Seller </a> </li> -->
+
     </ul>
-
   </div>
-
 </nav>
 
 
@@ -28,124 +26,32 @@
 
 
 
+    
+      <!-- <mat-sidenav-container class="container">
+        
+        <mat-sidenav #sidebar mode="side" opened>
+            <app-sidebar></app-sidebar>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <div class="content">
+                <div class="toolbar">
+                    <mat-toolbar>
+                        <mat-icon (click)="sidebar.toggle()">menu</mat-icon>
+                        <div class="box">
+                            <mat-icon>search</mat-icon>
+                            <mat-icon>bookmark_border</mat-icon>
+                            <mat-icon>mail_outline</mat-icon>
+                            <mat-icon>add</mat-icon>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="container">
-    <form [formGroup]="userForm" (submit)="onSaveUser()" >
-        <div class="row">
-            <div class="col-4">
-                <label for="">Name</label>
-                <input type="text" class="form-control" formControlName="name" >
-                <div class="text-danger" *ngIf="userForm.controls?.['name'].touched">  
-                    <span *ngIf="userForm.controls?.['name'].errors?.['required']"> This Is Required</span>
-                    <span *ngIf="userForm.controls?.['name'].errors?.['minlength']"> MIn Char Required</span>
+                            <h2>{{sellerName | titlecase}}</h2>
+    
+                        </div>
+                    </mat-toolbar>
+                </div>
+                <div class="main">
+                    
                 </div>
             </div>
-        
-        <div class="row">
-            <div class="col-4">
-                <label for="">User Name</label>
-                <input type="text" class="form-control" formControlName="username" >
-            </div>
-            <div class="col-4">
-                <label for="">Email</label>
-                <input type="text" class="form-control" formControlName="email" >
-            </div>
-           
-        </div>
-        <div class="col-4">
-            <label for="">password</label>
-            <input type="text" class="form-control" formControlName="password" >
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <button  class="btn btn-success" (click)="onSaveUser()"> Save User</button>
-            </div>
-        </div>
-    </form>
-</div> -->
-
-<!-- Your user page content here -->
-<!-- <button (click)="logout()">Logout</button> -->
-<!-- <div>
-        <h2>User Dashboard</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>User ID</th>
-              <th>Username</th>
-              <th>Email</th>
-              <th>User Type</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let user of users">
-              <td>{{ user.userId }}</td>
-              <td>{{ user.username }}</td>
-              <td>{{ user.email }}</td>
-              <td>{{ user.userType }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div> -->
-<!-- <div>  <h3>Registered Users</h3></div>
+        </mat-sidenav-content>
     
-      <table class="table table-hover table-bordered" >
-       
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">User Id</th>
-            <th scope="col">UserName</th>
-            <th scope="col">Email</th>
-            <th scope="col">UserType</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-            <tbody>
-              <tr *ngFor="let user of users ; let i =index">
-                <td>{{i+1}}</td>
-                <td>{{ user.userId }}</td>
-                <td>{{ user.username }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.userType }}</td>
-              </tr>
-        </tbody>
-      </table> --> 
-      <nav class="nav">
-        <h2>Seller</h2>
-        <div class="nav-search">
-          <input type="text" placeholder="search"><button>Search</button>
-        </div>
-        <div [ngSwitch]="menuType">
-          <ul *ngSwitchCase="'default'">
-            <li> <a href="#">Add Product</a> </li>
-            <li> <a href="#">List</a> </li>
-            <li> <a href="#">Seller </a> </li>
-            <li> <a (click)="logout()">Logout</a> </li> <!-- Add this logout link -->
-          </ul>
-          <ul *ngSwitchCase="'seller'">
-            <li> <a href="#">Add Product</a> </li>
-            <li> <a href="#">List</a> </li>
-            <li> <a href="#">Seller </a> </li>
-            <li> <a (click)="logout()">Logout</a> </li> <!-- Add this logout link -->
-          </ul>
-        </div>
-      </nav>
-      
+    </mat-sidenav-container> -->

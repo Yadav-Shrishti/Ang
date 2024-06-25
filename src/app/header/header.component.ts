@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
-export class AppComponent implements OnInit {
+export class HeaderComponent {
   title = 'Ang';
   opened = false;
   menuType: String = 'default';
+  authService: any;
 
   // to chk in console it will appear as opened nd close
   log(state: any) {
@@ -34,7 +34,10 @@ export class AppComponent implements OnInit {
       }
     )
   }
-
+  logout() {
+    this.authService.logout();
+    
+  }
   redirectToForm() {
     this.route.navigate(['/rf']);
   }

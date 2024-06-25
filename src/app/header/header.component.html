@@ -1,10 +1,5 @@
-    <app-header></app-header>
-<router-outlet></router-outlet>
-<!-- <app-footer></app-footer> -->
 
-
-
-<!-- <mat-toolbar color="primary">
+<mat-toolbar color="primary">
     <mat-toolbar-row>
 
         <button mat-button (click)="opened =!opened"><mat-icon>menu</mat-icon></button>
@@ -25,15 +20,15 @@
     <mat-sidenav [(opened)]="opened" mode="side">
 
         <mat-nav-list>
-            <div *ngIf="menuType==='default'" class="nav-search">
+            <!-- <div *ngIf="menuType==='default'" class="nav-search">
                 <input type="text" placeholder="search products"><button>Search</button>
-            </div>
+            </div> -->
 
             <div [ngSwitch]="menuType">
                 <ul *ngSwitchCase="'default'">
-                    <a mat-list-item>About</a>
-                    <a mat-list-item routerLink="login"><mat-icon>login</mat-icon>Login</a>
-                    <a mat-list-item routerLink="db"><mat-icon>dashboard</mat-icon>Dashboard</a>
+                    
+                    <a mat-list-item routerLink="login"> <mat-icon>login</mat-icon>Login</a>
+                    <a mat-list-item routerLink="db"> <mat-icon>dashboard</mat-icon>Dashboard</a>
                     <a mat-list-item><mat-icon>contacts</mat-icon>Contact</a>
                     <a mat-list-item><mat-icon>settings</mat-icon>Settings</a>
                 </ul>
@@ -57,7 +52,7 @@
                 </ul>
 
                 <ul *ngSwitchCase="'seller'">
-                    <a mat-list-item>About</a>
+        
                     <a mat-list-item routerLink="/product">Product Details</a>
                     <a mat-list-item routerLink="/cart">Add to Cart</a>
                     <a mat-list-item>Help</a>
@@ -70,7 +65,4 @@
     <mat-sidenav-content>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
-</mat-sidenav-container> -->
-
-
-
+</mat-sidenav-container>

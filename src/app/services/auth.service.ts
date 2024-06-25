@@ -6,7 +6,13 @@ import { UserServiceService } from './user-service.service';
   providedIn: 'root'
 })
 export class AuthService {
-  currentUser:any;
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('currentUser');
+  }
+  
+  getCurrentUser(): any {
+    return JSON.parse(localStorage.getItem('currentUser') || '{}');
+  }
 
   constructor(private userService: UserServiceService, private router: Router) {}
 
@@ -40,7 +46,7 @@ export class AuthService {
   logout() {
     
     localStorage.removeItem('currentUser');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
   
 }

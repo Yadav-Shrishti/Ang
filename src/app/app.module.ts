@@ -28,6 +28,10 @@ import { HomeComponent } from './home/home.component';
 
 import { CartComponent } from './seller/cart/cart.component';
 import { ProductListComponent } from './seller/product-list/product-list.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+
+
  
 
 
@@ -44,6 +48,8 @@ import { ProductListComponent } from './seller/product-list/product-list.compone
     HomeComponent,
     CartComponent,
     ProductListComponent,
+    HeaderComponent,
+    FooterComponent,
     
   
     
@@ -58,7 +64,8 @@ import { ProductListComponent } from './seller/product-list/product-list.compone
     MatToolbarModule,
     MatListModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   providers: [
     UserServiceService,

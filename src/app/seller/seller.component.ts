@@ -39,13 +39,23 @@ import { AlertifyService } from '../services/alertify.service';
 })
 export class SellerComponent implements OnInit {
   menuType: string = 'default';
+  sellerName:string='';
 
   constructor(private authService: AuthService, private alertify: AlertifyService) { }
 
+
+// to present the loggedin username
+
   ngOnInit(): void {
+    if (localStorage.getItem('currentUser')){
+      let sellerStore = localStorage.getItem('currentUser');
+      let sellerData = sellerStore && JSON.parse(sellerStore);
+      this.sellerName = sellerData.username; 
+    }
   }
 
   logout() {
     this.authService.logout();
+    
   }
 }
